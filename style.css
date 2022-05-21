@@ -1,0 +1,998 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz@8..144&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+    font-family: 'Roboto flex', Helvetica, Arial, sans-serif;
+    height: 100%;
+    letter-spacing: .5px;
+}
+h5{
+    font-size: 2.5rem;
+}
+
+.show-container{
+    width: 100%;
+    padding: 0 0.7rem;
+    overflow: hidden;
+    position: relative;
+}
+.show-bg{
+    width: 100%;
+    height: 34.9rem;
+    display: none;
+    animation: Slidein 700ms forwards;
+    overflow: hidden;
+}
+.controls{
+    padding: 0 .8rem;
+    position: absolute;
+    top: 28%;
+    left: 0;
+    transform: translateY(50%);
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.controls button{
+    border: white 1px solid;
+    outline: none;
+    padding: 0.8rem 1rem;
+    border-radius: .3rem;
+    background-color: rgba(19, 19, 19,.6);
+}
+.controls i{
+    color: white;
+    font-size: 2.5rem;
+}
+.controls i:active{
+    opacity: 80%;
+    color: rgb(148, 147, 147);
+    font-size: 2.5rem;
+}
+
+@keyframes Slidein{
+    0%{
+        transform: translateX(100%);
+        opacity: 0.7;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+.show-img{
+    width: 100%;
+    height: 100%;
+}
+.show{
+    width: 100%;
+height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.active-show{
+    display: block;
+}
+.carousel-small > p{
+    font-size: 1.3rem;
+    color: #f5c518;
+    font-weight: bold;
+}
+.carousel-small > a, .browse{
+    display: block;
+    margin-top: 1.1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+
+.up-next{
+    height: 460.25px;
+    overflow: hidden;
+    background-image: linear-gradient(to bottom, rgb(24, 24, 24), black, black);
+}
+.carousel-items{
+    height: 100%;
+}
+.carousel-container{
+    height: 150px;
+}
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+    height: 0%;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #1f1f1f;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.2s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+
+  }
+
+  .overlay main{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 
+    'one two three'
+    'one four three'
+    'five five six';
+    gap: 4rem;
+  }
+
+
+ 
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+      padding: 0 2rem;
+      display: block;
+    font-size: 2.5rem;
+  }
+  .closebtn i{
+      color: #f5c518;
+      font-size: 3rem;
+  }
+
+  #myNav > div > img{
+      height: 5.5rem;
+  }
+  .drop-down-lg img{
+      height: 1.5rem;
+  }
+  .drop-down-lg li{
+      margin: 0.9rem 0;
+      list-style: none;
+  }
+
+.movies-lg{grid-area: one;}
+.shows-lg{grid-area: two;}
+.awards-lg{ grid-area: three;}
+.watch-lg{grid-area: four;}
+.celebs-lg{grid-area: five;}
+.community-lg{grid-area: six;}
+
+.sidenav {
+    height: 100%; /* 100% Full-height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black*/
+    overflow-x: hidden; /* Disable horizontal scroll */ 
+    transition: 0.1s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  /* The navigation menu links */
+.sidenav > a {
+    padding: .8rem .8rem .8rem 2rem;
+    font-size: 3.2rem;
+    display: block;
+    text-align: right;
+    background: url(./diagonal-stripes-3.png) ;
+    background-size: cover;
+    width:100%;
+    cursor: pointer;
+    outline: none;
+  }
+  .sidenav .dropdown-btn img{
+    padding-right:.9rem;
+    height: 1.9rem;
+    
+  }
+
+  .dropdown-btn {
+    padding: .8rem 0rem;
+    font-size: 1.1rem;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+    width:100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+    margin-bottom: .5rem;
+  }
+  /* Add an active class to the active dropdown button */
+  .active {
+    color: #f5c518;
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    padding-left: .8rem;
+  }
+  .dropdown-container li {
+      font-size: 1.2rem;
+    display: block;
+    padding: .5rem 0;
+  }
+
+html{
+    height: 100%;
+    font-size: 16px;
+}
+p{
+    font-size: 1.1rem;
+}
+nav{
+    background-color: #131313;
+}
+.menu img{
+    height: 0.9rem;
+} 
+select {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    outline: none;
+}
+select:focus{
+    outline: none;
+}
+#main-logo{
+    color: #f5c518;
+    height: 2.5rem;
+    align-self: center;
+}
+#menu-bar{
+    font-size: 1.5rem;
+}
+.search span{
+    position: relative;
+}
+.search li{
+    position: relative;
+}
+nav .menu:hover{
+    background-color: #3b3b3b;
+}
+nav{
+    width: 100%;
+    display: block;
+}
+.search{
+    position: relative;
+    width: 61%;
+}
+
+.search input{
+    border: none;
+    width: 100%;
+}
+.search input:focus {
+    outline: #f5c518 solid 3px;
+}
+
+.bt{
+    white-space: nowrap;
+    background-color: white;
+    color: #1f1f1f;
+    border-top-left-radius: .3rem;
+    border-bottom-left-radius: .3rem;
+    height: 100%;
+}
+.btt{
+    font-weight: bold;
+    font-size: .94rem;
+}
+
+.menu-drop{
+    cursor: pointer;
+}
+
+.menu-list{
+    display: none;
+    z-index: 2;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin-top: .5rem;
+background-color: #1f1f1f;
+width: 15rem;
+
+}
+.menu-list .fa-solid{
+    margin-right: .8rem;
+    color: #f5c518;
+}
+.menu-list li{
+    list-style: none;
+    padding: 0.6rem;
+}
+.menu-list li:hover{
+    background-color: #3b3b3b;
+}
+.search button{
+    border: none;
+    background-color: white;
+    border-top-right-radius: .3rem;
+    border-bottom-right-radius: .3rem;
+}
+
+.search button:hover{
+    cursor: pointer;
+}
+#mySide-nav button > i{
+    font-size: 1.2rem;
+}
+#mySearch{
+    width: 100%;
+    display: none;
+    animation: Slidedown 300ms forwards;
+}
+@keyframes Slidedown{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+   
+   
+}
+#mySearch i{
+   font-size: 2rem;
+}
+
+#mySearch > div{
+    height: 100%;
+}
+#mySearch input{
+    background-color: rgb(241, 241, 241, 0);
+    border: none;
+    outline: none;
+    width: 80%;
+    height: 3rem;
+    caret-color: white;
+    color: white;
+    font-size: 1.3rem;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+.overlay-search {  
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #1f1f1f;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.2s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+  }
+.test-1{
+    display: grid;
+    align-self:flex-end;
+    grid-template-areas: 'one two three';
+}
+.test-1 img{
+    grid-area: one;
+}
+.test-1 > div{
+    grid-area: two;
+}
+.test-1 > p{
+grid-area: three;
+}
+.test-1 > div > p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #818181;
+}
+.test-1 > p {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #818181;
+}
+.items > div > span {
+    font-weight: bold;
+    color: #818181;
+}
+.col-12 span, .soon{
+    font-size: .9rem;
+    font-weight: bold;
+    color: #818181;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: white;
+}
+
+.d-inline-block .st-i{
+    margin-right: 0.7rem;
+}
+.st-i{
+    cursor: pointer;
+    height: 0.9rem;
+}
+.blue-s:hover{
+    background-color: #3b3b3b;
+    border-radius: 0.19rem;
+}
+.blue-s .st-i:hover{
+    filter:  brightness(0) invert(1);
+}
+a > .st-i:hover{
+    filter:  brightness(0) invert(1);
+}
+.link-i{
+    filter:  brightness(0) invert(1);
+}
+.fav a:hover{
+    background-color: #3b3b3b;
+    color: white;
+    border-radius: 0.15rem;
+}
+.bg-d{
+background-color: #1a1a1a;
+}
+.watchlist{
+    margin-top: 2rem;
+    background-color: #2b2b2b;
+    color: #5799ef;
+}
+.watchlist > img{
+    display: inline;
+    height:0.7rem
+}
+.fav div > .watchlist:hover{
+    color: #5799ef;
+}
+.recom{
+   color: #5799ef;
+}
+.recom:hover{
+    cursor:pointer;
+    background-color: rgb(87, 153, 239,0.2);
+}
+.recom img{
+    filter: invert(52%) sepia(45%) saturate(714%) hue-rotate(176deg) brightness(103%) contrast(87%);
+    height:1.2rem;
+}
+.show-info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to top, black, rgb(0, 0, 0),rgb(0, 0, 0, 0.8), rgb(0, 0, 0,0));
+}
+.show-info .show-play{
+    height: 5.8rem;    
+}
+.show-info .show-play:hover{  
+    filter: invert(39%) sepia(86%) saturate(440%) hue-rotate(6deg) brightness(100%) contrast(84%);
+}
+
+.info-img{
+    width: 11rem;
+    height: 15rem;
+    position: relative;
+}
+.info-img .info-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    object-position:center;
+}
+.add{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2.7rem;
+}
+.add-top{
+    height: 2.9rem;
+}
+.col-sm-6 .add-top{
+        padding-left: 1.3rem;
+    }
+.underline:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.link-i{
+    margin-left: 0.2rem;
+    height: 0.8rem;
+}
+
+
+.slick-next:before{
+    content: url(./next.png);
+    background-color: #1a1a1a;
+    border: 2px solid white;
+    border-radius: 2px;
+    font-size: 50px;
+}
+
+.slick-prev:before{
+    content: url(./prev.png);
+    background-color: #1a1a1a;
+    border: 2px solid white;
+    border-radius: 2px;
+    font-size: 50px;
+}
+
+.slick-next{
+    right: 15px;
+    top:35%;
+}
+.slick-prev{
+    left: 0;
+    z-index: 1;
+    top:35%;
+}
+.show-play{
+    height: 3rem;
+}
+.main-color{
+    color: #f5c518;
+}
+.border-left{
+    border-left: #f5c518 0.36rem solid;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+.border-right{
+    border-right: #f5c518 0.1rem solid;
+}
+.border-btm{
+    font-weight: bold;
+    cursor: pointer;
+    border-bottom: #f5c518 0.36rem solid;
+}
+.text-d{
+    color: rgb(255, 255, 255, 0.6);
+}
+
+.button-main{
+    background-color: #f5c518;
+    font-weight: bold;
+    color: black;
+}
+.button-main:hover{
+    filter: brightness(80%);
+}
+
+h2{
+    font-weight: 100;
+    font-size: 2.5rem;
+}
+
+.up-next-img{
+    height: 9.1rem;
+    width: 6.99rem;
+} 
+.play{
+    height:1.6rem;
+}
+.up-next-play{
+    padding-right: .5rem;
+    height:1.6rem;
+}
+.play{
+    margin-right: 5px;
+}
+
+
+.arrow-r{
+    margin: auto 0;
+    height: 2rem;
+}
+
+
+
+.watch-signin{
+    width: 100%;
+}
+.watch-signin img{
+   height: 4.3rem;
+}
+
+
+.fav, .bday{
+   width: 11.7rem;
+   margin: 0 1rem;
+}
+.bg-d > p{
+    height: 3rem;
+}
+.fav-bg{
+    width: 100%;
+    height: 20rem;
+    position: relative;
+}
+.fav-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    object-position: top;
+}
+
+.bday-img{
+margin: 0 auto;
+    height: 12rem;
+    width: 12rem;
+}
+.news{
+padding: .4rem 0;
+width: 100%;
+overflow-y: hidden;
+white-space: nowrap;
+}
+.news a{
+    margin: 0 .3rem;
+    width: 2rem;
+    padding: .4rem 1.1rem;
+    border-radius: 1.2rem;
+    border: solid 1px white;
+}
+.news a:hover{
+    background-color: #1f1f1f;
+}
+
+
+.watch a{
+    padding: 0.45rem 0.9rem;
+}
+
+
+.stars, .ex-bg {
+    height: 14rem;
+    width: 26.5rem;
+    margin-right:1rem;
+    position: relative;
+    cursor: pointer;
+}
+ .stars > img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: top;
+}
+.stars i {
+    font-size: 1.8rem;
+    align-self: center;
+}
+.icon{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+.fa-angle-right:hover, .fa-angle-left:hover{
+    color: #f5c518;
+}
+.icon img{
+    display: block;
+    height: 1.6rem;
+}
+.icon img:hover{
+    filter: invert(39%) sepia(86%) saturate(440%) hue-rotate(6deg) brightness(100%) contrast(84%);
+}
+
+.news-bg{
+    width: 26rem;
+    margin-right:1rem;
+}
+.news-links{
+    font-size: .8rem;
+}
+
+.-info-bg{
+    width: 26rem;
+    height: 14.4rem;
+    position: relative;
+}
+.ex-img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+}
+.ex-info{
+    position: absolute;
+    bottom: 0;
+}
+.l-gradient{
+    background-image: linear-gradient(to right, black, #1a1a1a);
+}
+
+.news-img{
+    height: 10.1rem;
+    width: 6.91rem;  
+}
+.viewed{
+    height: 7.2rem;
+}
+footer{
+    width: 100%;
+}
+footer .row i{
+    padding-left: 5px;
+    font-size: 0.8rem;
+}
+.details{
+    width: 70%;
+}
+.h-100{
+    filter: invert(100%) sepia(1%) saturate(7329%) hue-rotate(273deg) brightness(102%) contrast(101%);
+}
+.social, .company{
+    width: 100%;
+}
+.social a{
+    border-radius: 100%;
+    padding: .6rem;
+}
+.social a:hover{
+  background-color: #3b3b3b;
+}
+.social i{
+    font-size: 1.5rem;
+}
+.more-to:hover{
+    background-color: rgb(26, 26, 26,0.7);
+}
+
+.stars> img:hover, .show-container:hover > img:hover, .fav-bg> img:hover,
+ .ex-bg> img:hover, .bday-bg :hover, .news-bg:hover, article .col-12:hover, .show-bg:hover{
+     cursor: pointer;
+    filter: brightness(84%);
+}
+h3{
+    font-family:Helvetica;
+}
+
+
+
+.login{
+    background-color: #ccccc8;
+    color: black;
+}
+.login a{
+    color: black;
+}
+.login-container img{
+    height: 1.3rem;
+}
+
+.login-container{
+background-color: #fff;
+margin: 0 auto;
+width: 75%;
+}
+.login-option > div{
+    width: 75%;
+    margin: 0 auto .6rem auto;
+}
+.login h3{
+    font-size: 1.4rem;
+}
+.login hr{
+    height: 2px;
+    align-self: center;
+    margin: 0;
+    width: 50%;
+}
+.login-recent{
+    background-color: #ededec;
+    height: 100px;
+}
+
+  
+@media (max-width:374px) {
+    html{
+        font-size: 11px;
+    }
+    .test-1 > p {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+    }
+    .controls i{
+        color: white;
+        font-size: 1.5rem;
+    }
+    h5{
+        font-size: 1.8rem;
+    }
+    .test-1{
+        grid-template-areas: 'one three four'
+    'two two two ';
+    }
+    .bg-s{
+        background-color: #1a1a1a;
+    }
+    .pad-l{
+        padding-left: 2.0rem;
+    }
+    .pad{
+        padding: 0 0 0 1.4rem;
+        font-weight: bold; 
+    }
+    .fav{
+        box-shadow: 0px 3px 4px rgb(0, 0, 0, 0.7);
+        border-radius: 0.2rem ;
+    }
+    .show-bg{
+        width: 100%;
+        height: 24.9rem;
+        position: relative;
+    }
+    .menu-drop, .search input{
+        display: none;
+    }
+   
+    .search button{
+        border: none;
+        background-color: rgba(26, 26, 26, 0);
+        height: 100%;
+        border-radius: 80%;
+    }
+    
+    .search button:hover{
+        background-color: #3b3b3b;
+        cursor: pointer;
+    }
+    .small-glass{
+        font-size: 1.6rem;
+        color: white;
+    }
+    .info-img{
+        width: 8rem;
+        height: 12rem;
+    }
+    nav img{
+        height: 2.9rem;
+        align-self: center;
+    }
+    .menu img{
+        height: 1.4rem;
+    } 
+    .login-container{
+        background-color: #fff;
+        width: 100%;
+        }
+        
+        .login{
+            height: 100vh;
+          background-color: white;
+      }
+}
+
+@media(min-width:375px) and (max-width:575px){
+    .test-1 > p {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+    }
+    .controls i{
+        color: white;
+        font-size: 1.5rem;
+    }
+    h5{
+        font-size: 1.8rem;
+    }
+    .test-1{
+        grid-template-areas: 'one three four'
+    'two two two ';
+    }
+    html{
+        font-size: 12px;
+    }
+    .bg-s{
+        background-color: #1a1a1a;
+    }
+    .pad-l{
+        padding-left: 2.0rem;
+    }
+    .pad{
+        padding: 0 0 0 1.4rem;
+        font-weight: bold; 
+    }
+    .fav{
+        box-shadow: 0px 3px 4px rgb(0, 0, 0, 0.7);
+        border-radius: 0.2rem ;
+    }
+    .show-bg{
+        width: 100%;
+        height: 24.9rem;
+        position: relative;
+    }
+    .menu-drop, .search input{
+        display: none;
+    }
+   
+    .search button{
+        border: none;
+        background-color: rgba(26, 26, 26, 0);
+        height: 100%;
+        border-radius: 80%;
+    }
+    
+    .search button:hover{
+        background-color: #3b3b3b;
+        cursor: pointer;
+    }
+    .small-glass{
+        font-size: 1.6rem;
+        color: white;
+    }
+    .info-img{
+        width: 8rem;
+        height: 12rem;
+    }
+    nav img{
+        height: 2.9rem;
+        align-self: center;
+    }
+    .menu img{
+        height: 1.4rem;
+    } 
+    .login-container{
+        background-color: #fff;
+        width: 100%;
+        }
+  .login{
+      height: 100vh;
+    background-color: white;
+}
+}
+
+
+@media (min-width: 576px) and (max-width:991px){
+    .bg-s{
+        background-color: #1a1a1a;
+    }
+    .show-container{
+        width: 97%;
+    }
+    html{
+        font-size: 15px;
+    }
+    .pad-l{
+        padding-left: 2.0rem;
+    }
+    .pad{
+        padding: 0 0 0 1.4rem;
+    }
+     .fav{
+        box-shadow: 0px 3px 4px rgb(0, 0, 0, 0.7);
+        border-radius: 0.2rem ;
+    }
+    .login-container{
+        background-color: #fff;
+        width: 100%;
+        }
+        .login{
+            
+            background-color: white;
+        }
+        .login-option > div{
+            width: 100%;
+            margin: 0 auto .6rem auto;
+        }
+    }
+
+@media (min-width: 992px){
+    .social, .company{
+        width: 50%;
+    }
+}
